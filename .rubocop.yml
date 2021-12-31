@@ -60,9 +60,6 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
-# 为了兼容旧版本的ruby的语法，强制使用旧有格式的Hash
-Style/HashSyntax:
-  EnforcedStyle: hash_rockets
 Style/Next:
   MinBodyLength: 4
 Style/IfInsideElse:

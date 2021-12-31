@@ -2,14 +2,17 @@ PATH
   remote: .
   specs:
     sparrow (0.1.0)
-      activemodel (<= 6.1.4.4)
-      activesupport (<= 6.1.4.4)
+      activemodel
+      activemodel_object_info (~> 0.2.0)
+      activesupport
 
 GEM
   remote: https://rubygems.org/
   specs:
     activemodel (6.1.4.4)
       activesupport (= 6.1.4.4)
+    activemodel_object_info (0.2.0)
+      activesupport
     activesupport (6.1.4.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
