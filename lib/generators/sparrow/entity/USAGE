@@ -1,0 +1,11 @@
+Description:
+  Create a new sparrow entity class file that inherite from Sparrow::Base.
+
+Example:
+  rails generate sparrow:entity MyNameSpace::MyEntity
+
+  will create files as below:
+    app
+      entities
+        my_name_space
+          my_entity.rb

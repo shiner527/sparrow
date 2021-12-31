@@ -4,7 +4,7 @@ RSpec.describe ::SparrowTest::Normal do
   # 测试当前版本等内容
   describe 'current gem' do
     it 'current version' do
-      expect(::Sparrow::VERSION).to eq('0.1.0')
+      expect(::Sparrow::VERSION).to eq('0.1.1')
     end
   end
 

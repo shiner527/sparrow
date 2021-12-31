@@ -5,6 +5,9 @@ AllCops:
   NewCops: enable
   SuggestExtensions: false
 
+# 暂时无法添加验证
+Gemspec/RequireMFA:
+  Enabled: false
 # 弱ruby版本的gem，所有目前不需要检测ruby版本
 Gemspec/RequiredRubyVersion:
   Enabled: false
