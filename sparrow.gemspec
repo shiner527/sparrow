@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sparrow/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'sparrow'
+  spec.name          = 'sparrow-entity'
   spec.version       = Sparrow::VERSION
   spec.authors       = ['shiner']
   spec.email         = ['shiner527@hotmail.com']

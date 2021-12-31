@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sparrow (0.1.0)
+    sparrow-entity (0.1.0)
       activemodel
       activemodel_object_info (~> 0.2.0)
       activesupport
@@ -87,7 +87,7 @@ DEPENDENCIES
   rspec
   rubocop
   simplecov
-  sparrow!
+  sparrow-entity!
   yard
 
 BUNDLED WITH
