@@ -25,20 +25,22 @@ gem 'sparrow'
 安装之后尽可以在需要的时候随意创建自己的实体类，只要继承该 gem 提供的基础类即可。需要注意的是，如果你是在单纯的 Ruby 项目下使用，记得在使用前引入相关文件，比如：
 
 ```ruby
-# use this gem
+# 使用本 gem 引入。如果是 Rails 项目则可省略。
 require 'sparrow'
 
-# define custom entity class with this gem
+# 定义一个继承自 gem 基本实体类的自定义实体类
 class MyEntity < Sparrow::Base
-  # define some attributes with type seperately
+  # 定义相关的属性和类型
   field :id, Integer
   field :family_name, String
   field :given_name, String
   field :gender, Integer
   field :birthday, Date
   field :nationality, String
+  # 也可以给与属性默认值，如果属性值本身无效时获取该属性会返回默认值
+  field :status, String, default: 'good'
 
-  # define an instance method that will be used later
+  # 定义具体的实例方法可以在之后使用
   def full_name(last: :given, seperator: ' ')
     val = [family_name, given_name]
     val.reverse! if last == :family
@@ -53,6 +55,29 @@ end
 me = MyEntity.new(birthday: '2022-01-01')
 me.birthday
 # => <Date 2022年1月1日> 实例对象
+```
+
+### 赋值
+
+上例中也展示了为实体类的实例进行属性赋值的方式之一，即创建时指定属性名对应的值。当然也可以在创建后分别给属性赋值。
+
+```ruby
+me.family_name = '张'
+me.last_name = '三'
+me.full_name(seperator: '')
+# => "张三" 
+```
+
+### 默认属性值
+
+在定义属性的时候可以跟着 `default` 命名参数给出默认值。当属性值为空或者无效时，获取属性的时候会返回默认值。
+
+```ruby
+me.status
+# => "good"
+me.status = 'bad'
+me.status
+# => "bad"
 ```
 
 ### 基于 Rails 项目的使用方法
@@ -77,6 +102,18 @@ end
 ### 内置的属性方法
 
 除了常规的 `attributes` 和 `attribute_names` 方法分别获取属性名和值的键值对以及属性名的数组外，本 gem 还内置了 [activemodel_object_info](https://rubygems.org/gems/activemodel_object_info) 这个 gem 辅助生成属性和值的键值对散列。具体用法请参考相关 gem 的说明文档。
+
+```ruby
+OUTPUT = { 
+  attributes: [
+    { name: :full_name, type: :method },
+    { name: :sex, as: :gender, type: :abstract, filter: ->(v) { v == 1 ? 'Male' : 'Female' } },
+  ],
+}.freeze
+
+me.instance_info(OUTPUT)
+# => { full_name: "张三", sex: "Male" }
+```
 
 ## 面向开发者
 
