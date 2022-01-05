@@ -7,7 +7,7 @@ Sparrow 用来快速实现在一个 Ruby 项目中引入实体处理非数据库
 在你的项目中的 Gemfile 文件添加如下一行即可。建议保持最新版本以获取功能齐全的体验。
 
 ```ruby
-gem 'sparrow'
+gem 'sparrow-entity', require: 'sparrow'
 ```
 
 之后在你的项目文件夹下执行命令安装。
@@ -16,7 +16,7 @@ gem 'sparrow'
 
 或者也可以直接使用 gem 命令全局安装。
 
-  $ gem install sparrow
+  $ gem install sparrow-entity
 
 ## 使用
 
