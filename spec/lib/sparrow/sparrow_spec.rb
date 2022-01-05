@@ -63,6 +63,7 @@ RSpec.describe ::SparrowTest::Normal do
       it 'with invalid type' do
         obj = described_class.new(used_names: 10000)
         expect(obj.used_names).to eq([])
+        expect { described_class.new(used_names: 'not valid string can be parsed') }.to raise_error(::JSON::ParserError)
       end
     end
 
