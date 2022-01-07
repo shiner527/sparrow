@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sparrow-entity (0.1.1)
+    sparrow-entity (0.1.2)
       activemodel
       activemodel_object_info (~> 0.2.0)
       activesupport
