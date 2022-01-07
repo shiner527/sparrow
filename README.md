@@ -91,8 +91,8 @@ me.status
 使用命令 Rails 生成器命令 `sparrow:entity` 会在你的项目根文件夹的 `app/entities` 路径下生成 `post/reply.rb` 的文件，文件也自动创建了好了继承类。
 
 ```ruby
-module SparrowEntity
-  class Post::Reply < Sparrow::Base
+module Post
+  class Reply < Sparrow::Base
   end
 end
 ```
