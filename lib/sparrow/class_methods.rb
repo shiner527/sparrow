@@ -80,6 +80,8 @@ module Sparrow
             val = value
           when ::String
             val = attr_class.parse(value)
+            val = val.localtime if attr_class.is_a?(::Time)
+            val = val.localtime.to_datetime if attr_class.is_a?(::DateTime)
           end
           instance_variable_set(instance_var_name, val)
         end

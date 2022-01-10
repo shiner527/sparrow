@@ -69,6 +69,7 @@ module Sparrow
     def __class_body__
       results = __class_content__
       class_path.reverse.each { |sub| results = __module_content__(sub, results) } if class_path.present?
+      results << "\n"
       results
     end
 

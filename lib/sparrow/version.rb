@@ -2,7 +2,7 @@
 
 module Sparrow
   # 当前版本号
-  VERSION = '0.1.3'
+  VERSION = '0.1.4'
   # 当前综述
   SUMMARY = 'Provide an easy approach to build entity object for data that can not be reflected to database tables.'
   # 当前详述
