@@ -4,7 +4,7 @@ RSpec.describe ::SparrowTest::Normal do
   # 测试当前版本等内容
   describe 'current gem' do
     it 'current version' do
-      expect(::Sparrow::VERSION).to eq('0.1.1')
+      expect(::Sparrow::VERSION).to eq('0.1.3')
     end
   end
 
@@ -87,6 +87,33 @@ RSpec.describe ::SparrowTest::Normal do
         expect(obj.updated_at).to eq(described_class::DEFAULT_TIMESTAMP)
       end
     end
+
+    context 'with boolean field' do
+      it 'true value' do
+        obj = described_class.new(married: true)
+        expect(obj.married).to eq(true)
+      end
+
+      it 'false value' do
+        obj = described_class.new(married: false)
+        expect(obj.married).to eq(false)
+      end
+
+      it 'without value' do
+        obj = described_class.new
+        expect(obj.married).to eq(nil)
+      end
+
+      it 'other type value as true' do
+        obj = described_class.new(married: 'yes')
+        expect(obj.married).to eq(true)
+      end
+
+      it 'other type value as false' do
+        obj = described_class.new(married: '')
+        expect(obj.married).to eq(false)
+      end
+    end
   end
 
   # 测试属性键值对
@@ -100,6 +127,7 @@ RSpec.describe ::SparrowTest::Normal do
                                                first_name: eq('三'),
                                                last_name: eq('张'),
                                                used_names: eq([]),
+                                               married: eq(nil),
                                                created_at: eq(DateTime.parse('2022-01-01')),
                                                updated_at: eq(DateTime.parse('2022-01-01')),
                                              })

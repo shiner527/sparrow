@@ -98,6 +98,11 @@ module Sparrow
                 end
           instance_variable_set(instance_var_name, val)
         end
+      elsif attr_class == ::Sparrow::Boolean
+        # 如果是布尔值类型
+        define_method(setter_name) do |value|
+          instance_variable_set(instance_var_name, value.present?)
+        end
       else
         # 其他类型原封不动
         define_method(setter_name) do |value|

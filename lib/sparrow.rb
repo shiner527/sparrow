@@ -4,6 +4,7 @@ require 'sparrow/version'
 require 'active_support'
 require 'active_model'
 require 'activemodel_object_info'
+require 'sparrow/boolean'
 require 'sparrow/class_methods'
 require 'sparrow/base'
 

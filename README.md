@@ -57,6 +57,32 @@ me.birthday
 # => <Date 2022年1月1日> 实例对象
 ```
 
+### 布尔型属性
+
+当需要定义一个属性字段为布尔型时，可以使用本 gem 内置的 `Sparrow::Boolean` 作为类型定义即可。当赋予 **true** 值或者等价于（即使用 `present?` 判断为真）其值时被赋予真值，否则被赋予假值。同样的，如果没有对其进行赋值，则获取该字段属性会返回 **nil** 空值。
+
+```ruby
+class OtherEntity < Sparrow::Base
+  field :married, Sparrow::Boolean
+end
+
+obj = OtherEntity.new
+obj.married
+# => nil
+
+obj.married = true
+obj.married
+# => true
+
+obj.married = ''
+obj.married
+# => false
+
+obj.married = 'yes'
+obj.married
+# => true
+```
+
 ### 赋值
 
 上例中也展示了为实体类的实例进行属性赋值的方式之一，即创建时指定属性名对应的值。当然也可以在创建后分别给属性赋值。

@@ -11,7 +11,7 @@ module Sparrow
     TARGET_RELATIVE_PATH = 'app/entities'
 
     # 单模组模板
-    MODULE_TEMPLATE =<<~MODULE.strip
+    MODULE_TEMPLATE = <<~MODULE.strip
       module %{module_name}
       %{module_content}
       end
@@ -59,11 +59,11 @@ module Sparrow
     end
 
     def __module_content__(name, content)
-      return MODULE_TEMPLATE % { module_name: name.camelize, module_content: indent(content, 2) }
+      MODULE_TEMPLATE % { module_name: name.camelize, module_content: indent(content, 2) }
     end
 
     def __class_content__
-      return CLASS_TEMPLATE % { class_name: file_name.camelize }
+      CLASS_TEMPLATE % { class_name: file_name.camelize }
     end
 
     def __class_body__
@@ -76,7 +76,9 @@ module Sparrow
       current = paths.shift
       content = paths.size.positive? ? __module_body__(paths) : ''
       result = current ? __module_content__(current, content) : ''
-      result.each_line.select { |line| line.present? }.join
+      result = result.each_line.select(&:present?).join
+      result << "\n"
+      result
     end
   end
 end

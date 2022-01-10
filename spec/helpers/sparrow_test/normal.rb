@@ -17,6 +17,8 @@ module SparrowTest
 
     field :weight, Float
 
+    field :married, ::Sparrow::Boolean
+
     before_initialize :call_before_initialize
     after_initialize :call_after_initialize
 
