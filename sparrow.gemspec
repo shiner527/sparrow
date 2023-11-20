@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activemodel'
-  spec.add_dependency 'activemodel_object_info', '~> 0.2.0'
+  spec.add_dependency 'activemodel_object_info', '>= 0.3.0'
   spec.add_dependency 'activesupport'
 
   spec.add_development_dependency 'bundler'
